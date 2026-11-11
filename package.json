@@ -1,0 +1,27 @@
+{
+  "name": "multimodal-clinical-discharge-guardian",
+  "version": "2.4.0",
+  "description": "Multimodal Clinical Discharge & Drug Interaction Guardian for Healthcare & Accessibility, powered by open biomedical models (Hugging Face, NIH RxNav).",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node scripts/test_clinical_cases.js",
+    "download-models": "python scripts/download_open_models.py",
+    "ner": "python scripts/huggingface_clinical_ner.py"
+  },
+  "keywords": [
+    "healthcare",
+    "accessibility",
+    "multimodal",
+    "clinical-discharge",
+    "drug-interaction",
+    "wcag-aaa",
+    "huggingface",
+    "biomedical-ner",
+    "rxnorm",
+    "antigravity"
+  ],
+  "author": "Google Antigravity Healthcare Innovation",
+  "license": "MIT"
+}

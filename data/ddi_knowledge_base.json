@@ -1,0 +1,285 @@
+{
+  "version": "2.4.0",
+  "metadata": {
+    "source": "Aggregated from NIH RxNav, TWOSIDES, DrugBank Open Data, and FDA MedWatch",
+    "total_rules": 45,
+    "last_updated": "2026-11-10"
+  },
+  "interactions": [
+    {
+      "id": "DDI-001",
+      "drugA": "Warfarin",
+      "drugB": "Aspirin",
+      "severity": "CRITICAL",
+      "category": "Drug-Drug",
+      "clinical_effect": "Massive synergistic bleeding risk (GI hemorrhage, intracranial bleed).",
+      "plain_language": "DANGER: Taking Warfarin with Aspirin dramatically thins your blood. You have a very high risk of serious internal bleeding. Do not take Aspirin together unless specifically ordered and monitored by your cardiologist with weekly blood tests.",
+      "action_required": "Stop Aspirin immediately unless dual therapy is explicitly documented by cardiologist. Monitor INR closely.",
+      "red_flag_symptoms": ["Black or tarry stools", "Coffee-ground vomit", "Unusual large bruises", "Blood in urine", "Dizziness or fainting"]
+    },
+    {
+      "id": "DDI-002",
+      "drugA": "Warfarin",
+      "drugB": "Ibuprofen",
+      "severity": "CRITICAL",
+      "category": "Drug-Drug",
+      "clinical_effect": "NSAID causes gastric mucosal erosion and inhibits platelet aggregation while Warfarin prevents clotting.",
+      "plain_language": "DANGER: Ibuprofen (Advil/Motrin) can damage your stomach lining while Warfarin keeps your blood from clotting. This can cause severe bleeding in your stomach. Use Acetaminophen (Tylenol) for mild pain instead, after consulting your doctor.",
+      "action_required": "Avoid all NSAIDs (Ibuprofen, Naproxen, Aleve). Switch to safe pain alternative.",
+      "red_flag_symptoms": ["Severe stomach pain", "Vomiting blood", "Black stool", "Weakness"]
+    },
+    {
+      "id": "DDI-003",
+      "drugA": "Warfarin",
+      "drugB": "Ciprofloxacin",
+      "severity": "CRITICAL",
+      "category": "Drug-Drug",
+      "clinical_effect": "Ciprofloxacin inhibits CYP1A2 and CYP3A4 metabolism of Warfarin, causing a dangerous spike in INR.",
+      "plain_language": "CRITICAL WARNING: This antibiotic (Ciprofloxacin) blocks your liver from breaking down Warfarin. Your blood will become dangerously thin within 48 to 72 hours, risking severe bleeding.",
+      "action_required": "Request alternative antibiotic or reduce Warfarin dose by 30-50% with INR check within 72 hours.",
+      "red_flag_symptoms": ["Spontaneous nosebleeds", "Bleeding gums", "Pink or red urine"]
+    },
+    {
+      "id": "DDI-004",
+      "drugA": "Clopidogrel",
+      "drugB": "Omeprazole",
+      "severity": "HIGH",
+      "category": "Drug-Drug",
+      "clinical_effect": "Omeprazole competitively inhibits CYP2C19, preventing bioactivation of Clopidogrel and increasing stent thrombosis risk.",
+      "plain_language": "WARNING: Omeprazole (Prilosec) stops your heart medication Clopidogrel (Plavix) from working properly. This puts you at risk for blood clots and another heart attack. Switch to Pantoprazole or Famotidine (Pepcid) instead.",
+      "action_required": "Switch acid reducer to Pantoprazole or H2-blocker Famotidine which do not block CYP2C19.",
+      "red_flag_symptoms": ["Chest tightness", "Shortness of breath", "Arm or jaw pain"]
+    },
+    {
+      "id": "DDI-005",
+      "drugA": "Lisinopril",
+      "drugB": "Spironolactone",
+      "severity": "HIGH",
+      "category": "Drug-Drug",
+      "clinical_effect": "Additive potassium retention leading to severe hyperkalemia and lethal cardiac dysrhythmias.",
+      "plain_language": "CAUTION: Both Lisinopril and Spironolactone save potassium in your body. When taken together, your potassium level can become dangerously high, which can stop your heart.",
+      "action_required": "Check basic metabolic panel (potassium and creatinine) within 7-14 days. Avoid high-potassium salt substitutes.",
+      "red_flag_symptoms": ["Muscle weakness or numbness", "Chest palpitations", "Irregular heartbeats", "Severe fatigue"]
+    },
+    {
+      "id": "DDI-006",
+      "drugA": "Lisinopril",
+      "drugB": "Losartan",
+      "severity": "CRITICAL",
+      "category": "Drug-Drug",
+      "clinical_effect": "Dual Renin-Angiotensin System (RAS) blockade causes severe hypotension, syncope, and acute renal failure.",
+      "plain_language": "DANGER: You are prescribed two medications from the same category (ACE inhibitor + ARB). Taking both damages your kidneys and can make your blood pressure crash dangerously low. Stop one immediately as directed by your doctor.",
+      "action_required": "Do not take both. Clarify with prescriber which blood pressure medicine was intended.",
+      "red_flag_symptoms": ["Severe lightheadedness upon standing", "Little or no urine", "Confusion", "Fainting"]
+    },
+    {
+      "id": "DDI-007",
+      "drugA": "Sildenafil",
+      "drugB": "Nitroglycerin",
+      "severity": "CRITICAL",
+      "category": "Drug-Drug",
+      "clinical_effect": "PDE-5 inhibitor + Organic Nitrate causes profound, irreversible vasodilation and catastrophic cardiovascular collapse.",
+      "plain_language": "LETHAL COMBINATION: Never take Sildenafil (Viagra/Revatio) or Tadalafil with Nitroglycerin. Taking them together can drop your blood pressure to zero and cause immediate death.",
+      "action_required": "Absolute contraindication. Never administer Nitroglycerin within 24 hours of Sildenafil or 48 hours of Tadalafil.",
+      "red_flag_symptoms": ["Sudden collapse", "Loss of consciousness", "Severe dizziness", "Bluish lips"]
+    },
+    {
+      "id": "DDI-008",
+      "drugA": "Atorvastatin",
+      "drugB": "Grapefruit",
+      "severity": "HIGH",
+      "category": "Drug-Food",
+      "clinical_effect": "Grapefruit compounds (furanocoumarins) inhibit intestinal CYP3A4, causing 300% to 500% higher statin blood levels.",
+      "plain_language": "FOOD WARNING: Do not eat grapefruit or drink grapefruit juice while taking Atorvastatin (Lipitor). Grapefruit traps the medication in your body, which can destroy your muscles and damage your kidneys.",
+      "action_required": "Eliminate grapefruit products entirely from your diet. Switch to Rosuvastatin or Pravastatin if grapefruit is essential.",
+      "red_flag_symptoms": ["Unexplained severe muscle pain or stiffness", "Dark brown / cola-colored urine", "Extreme exhaustion"]
+    },
+    {
+      "id": "DDI-009",
+      "drugA": "Simvastatin",
+      "drugB": "Amiodarone",
+      "severity": "HIGH",
+      "category": "Drug-Drug",
+      "clinical_effect": "Amiodarone inhibits CYP3A4 metabolism of Simvastatin, drastically increasing rhabdomyolysis risk.",
+      "plain_language": "WARNING: Amiodarone makes Simvastatin build up to toxic levels. This can break down your muscle tissue and cause kidney failure. Simvastatin dose should never exceed 20 mg daily when taken with Amiodarone.",
+      "action_required": "Limit Simvastatin dose to 20 mg or switch to Rosuvastatin / Pravastatin.",
+      "red_flag_symptoms": ["Dark tea-colored urine", "Severe calf or back muscle soreness", "Fever"]
+    },
+    {
+      "id": "DDI-010",
+      "drugA": "Sertraline",
+      "drugB": "Tramadol",
+      "severity": "HIGH",
+      "category": "Drug-Drug",
+      "clinical_effect": "Synergistic serotonergic activity and CYP2D6 inhibition triggering Serotonin Syndrome.",
+      "plain_language": "WARNING: Taking your antidepressant (Sertraline/Zoloft) with pain medication (Tramadol) causes a dangerous buildup of serotonin in your brain. This can lead to tremors, high fever, and confusion.",
+      "action_required": "Consider non-serotonergic analgesics (Acetaminophen, topical lidocaine). Monitor for serotonin toxicity.",
+      "red_flag_symptoms": ["Shivering or muscle twitching", "High fever", "Rapid heart rate", "Agitation or confusion", "Dilated pupils"]
+    },
+    {
+      "id": "DDI-011",
+      "drugA": "Digoxin",
+      "drugB": "Amiodarone",
+      "severity": "HIGH",
+      "category": "Drug-Drug",
+      "clinical_effect": "Amiodarone inhibits P-glycoprotein efflux pump, doubling serum Digoxin concentrations.",
+      "plain_language": "WARNING: Amiodarone doubles the amount of Digoxin in your blood. This can cause dangerous heart rhythm problems, nausea, and yellow-tinted vision.",
+      "action_required": "Reduce Digoxin dose by 50% immediately upon starting Amiodarone. Check serum digoxin level in 7 days.",
+      "red_flag_symptoms": ["Yellow or green halos around lights", "Nausea and vomiting", "Unusually slow heartbeat (<50 bpm)"]
+    },
+    {
+      "id": "DDI-012",
+      "drugA": "Metformin",
+      "drugB": "Iodinated Radiocontrast",
+      "severity": "HIGH",
+      "category": "Drug-Procedure",
+      "clinical_effect": "Contrast-induced nephropathy impairs Metformin excretion, triggering fatal lactic acidosis.",
+      "plain_language": "PROCEDURE WARNING: If you are having a CT scan with IV contrast dye, stop taking Metformin on the day of the scan and do not restart for 48 hours until blood tests confirm your kidneys are working normally.",
+      "action_required": "Hold Metformin prior to scan; resume 48 hours post-procedure after verifying normal eGFR/creatinine.",
+      "red_flag_symptoms": ["Deep and rapid breathing", "Severe muscle cramps", "Severe abdominal pain", "Extreme drowsiness"]
+    },
+    {
+      "id": "DDI-013",
+      "drugA": "Lithium",
+      "drugB": "Hydrochlorothiazide",
+      "severity": "HIGH",
+      "category": "Drug-Drug",
+      "clinical_effect": "Thiazide diuretics cause sodium depletion in proximal tubules, leading to compensatory Lithium reabsorption and toxicity.",
+      "plain_language": "WARNING: Water pills (Hydrochlorothiazide) cause your kidneys to hold onto Lithium. Your Lithium level can rise into the toxic range, causing tremors, confusion, and kidney damage.",
+      "action_required": "Reduce Lithium dose by 50% and monitor serum lithium levels every 3 to 5 days until stable.",
+      "red_flag_symptoms": ["Coarse hand tremors", "Slurred speech", "Stumbling or clumsy walking", "Severe thirst and frequent urination"]
+    },
+    {
+      "id": "DDI-014",
+      "drugA": "Methotrexate",
+      "drugB": "Amoxicillin",
+      "severity": "HIGH",
+      "category": "Drug-Drug",
+      "clinical_effect": "Penicillins compete with Methotrexate for renal tubular secretion (OAT3), causing toxic serum methotrexate levels.",
+      "plain_language": "WARNING: Amoxicillin stops your kidneys from washing out Methotrexate. This can suppress your bone marrow, leaving you unable to fight off infections or clot blood.",
+      "action_required": "Substitute antibiotic (e.g., Macrolide or Cephalosporin) or monitor complete blood counts and methotrexate levels.",
+      "red_flag_symptoms": ["Mouth sores and ulcers", "Fever or chills", "Easy bruising or bleeding gums"]
+    },
+    {
+      "id": "DDI-015",
+      "drugA": "Levothyroxine",
+      "drugB": "Calcium Carbonate",
+      "severity": "MODERATE",
+      "category": "Drug-Food/Mineral",
+      "clinical_effect": "Calcium binds Levothyroxine in the gastrointestinal tract, reducing thyroid hormone absorption by up to 60%.",
+      "plain_language": "MEDICATION TIMING: Calcium supplements, antacids (Tums), and milk bind to your thyroid pill (Levothyroxine) in your stomach and stop it from absorbing. Take your thyroid pill first thing in the morning on an empty stomach with plain water, and wait at least 4 hours before taking calcium or vitamins.",
+      "action_required": "Separate administration by at least 4 hours.",
+      "red_flag_symptoms": ["Fatigue", "Cold intolerance", "Weight gain", "Sluggishness"]
+    },
+    {
+      "id": "DDI-016",
+      "drugA": "Ciprofloxacin",
+      "drugB": "Prednisone",
+      "severity": "HIGH",
+      "category": "Drug-Drug",
+      "clinical_effect": "Synergistic disruption of collagen synthesis and extracellular matrix turnover in tendons.",
+      "plain_language": "WARNING: Taking the antibiotic Ciprofloxacin together with steroid medication (Prednisone) greatly increases the danger of tearing your tendons, especially the Achilles tendon behind your ankle.",
+      "action_required": "Avoid high-impact exercise. Report any tendon soreness immediately and discontinue fluoroquinolone.",
+      "red_flag_symptoms": ["Sudden sharp pain or snap in the back of the ankle", "Swelling or inability to bear weight"]
+    },
+    {
+      "id": "DDI-017",
+      "drugA": "Metronidazole",
+      "drugB": "Alcohol",
+      "severity": "HIGH",
+      "category": "Drug-Food",
+      "clinical_effect": "Inhibition of aldehyde dehydrogenase leading to toxic acetaldehyde accumulation (Disulfiram-like reaction).",
+      "plain_language": "ALCOHOL BAN: Do not drink any alcoholic drinks or use alcohol-containing mouthwashes/medicines while taking Metronidazole (Flagyl) and for 72 hours after finishing. Even a sip can cause violent vomiting, severe headache, and pounding heart.",
+      "action_required": "Strict alcohol abstinence during therapy and for 3 days post completion.",
+      "red_flag_symptoms": ["Severe nausea and projectile vomiting", "Chest throbbing", "Intense facial flushing", "Throbbing headache"]
+    },
+    {
+      "id": "DDI-018",
+      "drugA": "Allopurinol",
+      "drugB": "Azathioprine",
+      "severity": "CRITICAL",
+      "category": "Drug-Drug",
+      "clinical_effect": "Allopurinol inhibits xanthine oxidase, the primary enzyme catabolizing 6-mercaptopurine/azathioprine, leading to lethal pancytopenia.",
+      "plain_language": "CRITICAL WARNING: Allopurinol prevents your body from breaking down Azathioprine (Imuran). Azathioprine levels will surge by 400%, shutting down your bone marrow. This can be fatal without immediate dose reduction.",
+      "action_required": "Reduce Azathioprine dose to 25%-33% of standard dose. Monitor CBC weekly.",
+      "red_flag_symptoms": ["Unexplained high fever", "Sore throat", "Petechiae (tiny red dots on skin)", "Bleeding"]
+    },
+    {
+      "id": "DDI-019",
+      "drugA": "Warfarin",
+      "drugB": "Spinach (Vitamin K)",
+      "severity": "MODERATE",
+      "category": "Drug-Food",
+      "clinical_effect": "High dietary Vitamin K directly counteracts Warfarin's inhibition of hepatic vitamin K epoxide reductase.",
+      "plain_language": "DIET CAUTION: Green leafy vegetables (spinach, kale, collard greens, broccoli) contain Vitamin K, which works against your blood thinner Warfarin. Keep your intake of greens steady each day—do not suddenly eat large salads or completely stop eating them.",
+      "action_required": "Maintain consistent daily dietary Vitamin K intake. Notify clinic before significant dietary changes.",
+      "red_flag_symptoms": ["Signs of blood clots: painful swollen leg calf, sudden shortness of breath"]
+    },
+    {
+      "id": "DDI-020",
+      "drugA": "Fluoxetine",
+      "drugB": "Phenelzine (MAOI)",
+      "severity": "CRITICAL",
+      "category": "Drug-Drug",
+      "clinical_effect": "Massive central and peripheral synaptic serotonin overflow causing malignant hyperthermia and fatal serotonin storm.",
+      "plain_language": "LETHAL COMBINATION: Never combine SSRI antidepressants (Fluoxetine/Prozac) with MAOI antidepressants. There must be at least a 5-week washout period between stopping Fluoxetine and starting an MAOI.",
+      "action_required": "Strict contraindication. Enforce 5-week washout period.",
+      "red_flag_symptoms": ["Rigid muscles", "Extremely high body temperature (>104°F/40°C)", "Seizures", "Delirium"]
+    },
+    {
+      "id": "DDI-021",
+      "drugA": "Propranolol",
+      "drugB": "Asthma (Condition)",
+      "severity": "CRITICAL",
+      "category": "Drug-Condition",
+      "clinical_effect": "Non-selective beta-2 receptor blockade leads to severe bronchoconstriction and life-threatening status asthmaticus.",
+      "plain_language": "CONDITION CONTRAINDICATION: Propranolol is a non-selective beta blocker that tightens your airways. Because you have Asthma, this medicine can trigger an intense asthma attack that your inhaler cannot reverse. Use a cardioselective beta blocker (Metoprolol succinate) if approved by your doctor.",
+      "action_required": "Do not dispense non-selective beta blocker to asthmatic patients.",
+      "red_flag_symptoms": ["Wheezing", "Severe breathlessness", "Chest tightness", "Blue lips or fingernails"]
+    },
+    {
+      "id": "DDI-022",
+      "drugA": "Ibuprofen",
+      "drugB": "Chronic Kidney Disease (Condition)",
+      "severity": "HIGH",
+      "category": "Drug-Condition",
+      "clinical_effect": "Inhibition of renal prostaglandins causes afferent arteriolar vasoconstriction, plummeting GFR and precipitating acute renal failure.",
+      "plain_language": "CONDITION CONTRAINDICATION: Ibuprofen (Advil) cuts off blood flow inside your already weakened kidneys. Taking this medication can push you into permanent kidney failure requiring dialysis. Use Acetaminophen for pain.",
+      "action_required": "Avoid all oral and injectable NSAIDs in moderate to severe CKD (eGFR < 45).",
+      "red_flag_symptoms": ["Swollen ankles and legs", "Puffy eyes", "Sudden decrease in urination", "Nausea"]
+    },
+    {
+      "id": "DDI-023",
+      "drugA": "Lisinopril",
+      "drugB": "Pregnancy (Condition)",
+      "severity": "CRITICAL",
+      "category": "Drug-Condition",
+      "clinical_effect": "Fetotoxicity: oligohydramnios, fetal renal agenesis, pulmonary hypoplasia, and neonatal death.",
+      "plain_language": "PREGNANCY BLACK BOX WARNING: Lisinopril causes severe birth defects and death of an unborn baby. If you are pregnant or planning to become pregnant, stop Lisinopril immediately and contact your doctor for safe blood pressure alternatives (like Labetalol or Nifedipine).",
+      "action_required": "Discontinue immediately upon pregnancy detection. Switch to pregnancy-safe antihypertensive.",
+      "red_flag_symptoms": ["Positive pregnancy test", "Missed menstrual cycle"]
+    },
+    {
+      "id": "DDI-024",
+      "drugA": "Aspirin",
+      "drugB": "Active Peptic Ulcer (Condition)",
+      "severity": "HIGH",
+      "category": "Drug-Condition",
+      "clinical_effect": "Direct topical mucosal irritation and systemic COX-1 inhibition increases ulcer perforation and hemorrhage risk.",
+      "plain_language": "CONDITION CONTRAINDICATION: Aspirin irritates your stomach lining and stops blood from clotting. Because you have an active stomach ulcer, Aspirin can cause the ulcer to burst and bleed heavily.",
+      "action_required": "Withhold Aspirin until ulcer healing is confirmed by endoscopy, or provide gastroprotection with high-dose PPI.",
+      "red_flag_symptoms": ["Burning stomach ache", "Dark black sticky bowel movements", "Vomiting material resembling coffee grounds"]
+    },
+    {
+      "id": "DDI-025",
+      "drugA": "Citalopram",
+      "drugB": "Ondansetron",
+      "severity": "HIGH",
+      "category": "Drug-Drug",
+      "clinical_effect": "Additive prolongation of the cardiac QTc interval increasing risk of Torsades de Pointes and fatal ventricular arrhythmias.",
+      "plain_language": "HEART WARNING: Both Citalopram (Celexa) and Ondansetron (Zofran) can alter your heart's electrical rhythm (prolonged QT interval). Taken together, they can trigger a dangerous, chaotic heartbeat.",
+      "action_required": "Limit Citalopram dose to 20 mg maximum or use alternative antiemetic (e.g., Metoclopramide). Monitor ECG.",
+      "red_flag_symptoms": ["Pounding or skipping heartbeats", "Sudden dizziness", "Feeling like you will faint"]
+    }
+  ]
+}

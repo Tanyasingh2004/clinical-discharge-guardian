@@ -1,0 +1,65 @@
+{
+  "samples": [
+    {
+      "id": "CASE-01",
+      "title": "Post-Acute Myocardial Infarction & Stent Placement (Cardiology)",
+      "patient": {
+        "name": "Robert Miller",
+        "age": 68,
+        "gender": "Male",
+        "primary_language": "English",
+        "reading_level": "Grade 5 (Elderly, Mild Cognitive Decline)",
+        "allergies": ["Sulfa drugs (hives)"],
+        "known_conditions": ["Coronary Artery Disease", "Type 2 Diabetes Mellitus", "Hypertension", "GERD"]
+      },
+      "doctor_raw_text": "DISCHARGE SUMMARY\nPATIENT: Miller, Robert | AGE: 68 | MRN: #89210-CRD\nADMIT DIAGNOSIS: Acute STEMI s/p emergency PCI with drug-eluting stent (DES) to proximal LAD.\nHOSPITAL COURSE: Uncomplicated post-stent course. Peak troponin 18.4 ng/mL. Echo shows LVEF 42% with anterior hypokinesis.\nDISCHARGE MEDICATIONS:\n1. Aspirin 81 mg PO QD indefinitely.\n2. Clopidogrel (Plavix) 75 mg PO QD x 12 months minimum.\n3. Metoprolol Tartrate 25 mg PO BID.\n4. Atorvastatin (Lipitor) 80 mg PO QHS.\n5. Lisinopril 10 mg PO QD.\n6. Omeprazole (Prilosec) 20 mg PO QD for dyspepsia.\n7. Warfarin (Coumadin) 5 mg PO QD (started for newly detected paroxysmal atrial fibrillation, target INR 2.0-3.0).\nDIET: Low sodium (2g/day), low saturated fat. Strict fluid restriction 1.5L/day.\nACTIVITY: Cardiac rehab referral. No lifting > 10 lbs x 2 weeks. Ambulate TID.\nFOLLOW-UP: Cardiology in 10 days. Anticoagulation clinic for INR check in 48 hours.\nRED FLAGS: Angioedema, diaphoresis, recurrence of retrosternal pressure, syncope, or overt hemorrhage.",
+      "critical_hazards": [
+        "Triple Therapy Bleeding Risk: Warfarin + Aspirin + Clopidogrel drastically raises catastrophic GI and brain hemorrhage risk.",
+        "Omeprazole + Clopidogrel: Omeprazole inhibits CYP2C19 activation of Clopidogrel, increasing risk of fatal stent thrombosis.",
+        "Atorvastatin + Grapefruit: Patient must be warned against grapefruit consumption."
+      ],
+      "tags": ["Cardiology", "STEMI", "Stent", "Triple Therapy", "High Bleeding Risk"]
+    },
+    {
+      "id": "CASE-02",
+      "title": "Geriatric Polypharmacy & Sepsis with Kidney Impairment (Nephrology/Geriatrics)",
+      "patient": {
+        "name": "Eleanor Vance",
+        "age": 79,
+        "gender": "Female",
+        "primary_language": "English",
+        "reading_level": "Grade 4 (Visually Impaired, Macular Degeneration)",
+        "allergies": ["Penicillin (Anaphylaxis)"],
+        "known_conditions": ["Stage 3b Chronic Kidney Disease (eGFR 32 mL/min)", "Osteoarthritis", "Hypertension", "Atrial Fibrillation"]
+      },
+      "doctor_raw_text": "HOSPITAL DISCHARGE NOTE\nPATIENT: Vance, Eleanor | AGE: 79 | MRN: #44091-GER\nPRIMARY ADMIT: Urosepsis secondary to E. coli UTI. Resolved with IV ceftriaxone. Acute kidney injury superimposed on CKD-3b improved to baseline Cr 1.9 mg/dL.\nDISCHARGE MEDICATIONS:\n1. Ciprofloxacin 500 mg PO BID x 7 days to complete antibiotic course.\n2. Warfarin 2.5 mg PO QPM (monitor INR).\n3. Ibuprofen 600 mg PO TID PRN severe knee osteoarthritis pain.\n4. Lisinopril 20 mg PO QD.\n5. Spironolactone 25 mg PO QD.\n6. Levothyroxine 75 mcg PO QD on empty stomach.\n7. Calcium Carbonate 500 mg + Vit D PO BID.\nPLAN: Repeat BMP and INR in 3 days. Strict hydration. Avoid nephrotoxins.\nRED FLAGS: Gross hematuria, anuria, dyspnea, confusion, or syncope.",
+      "critical_hazards": [
+        "Ciprofloxacin + Warfarin: Cipro inhibits Warfarin breakdown -> INR spike -> massive bleeding.",
+        "Ibuprofen + CKD: NSAID damages already compromised kidneys, risking dialysis.",
+        "Lisinopril + Spironolactone: Dual potassium-sparing effect -> lethal hyperkalemia.",
+        "Calcium Carbonate + Levothyroxine: Taking together blocks thyroid hormone absorption."
+      ],
+      "tags": ["Geriatrics", "Polypharmacy", "CKD", "Severe DDI", "Accessibility Priority"]
+    },
+    {
+      "id": "CASE-03",
+      "title": "Severe Asthma Exacerbation & Community-Acquired Pneumonia (Pulmonology)",
+      "patient": {
+        "name": "Marcus Chen",
+        "age": 42,
+        "gender": "Male",
+        "primary_language": "Mandarin / ESL",
+        "reading_level": "Grade 6",
+        "allergies": ["Aspirin-Exacerbated Respiratory Disease (AERD) / Samter's Triad"],
+        "known_conditions": ["Severe Persistent Asthma", "Nasal Polyps", "Hypertension"]
+      },
+      "doctor_raw_text": "CLINICAL DISCHARGE SUMMARY\nPATIENT: Chen, Marcus | AGE: 42 | MRN: #10872-PULM\nDIAGNOSIS: Acute severe asthma exacerbation precipitated by Mycoplasma pneumoniae pneumonia. Required 24hr BiPAP.\nDISCHARGE ORDERS:\n1. Prednisone 40 mg PO QD x 5 days burst therapy, then stop.\n2. Ciprofloxacin 500 mg PO BID x 7 days.\n3. Fluticasone/Salmeterol (Advair Diskus 250/50) 1 puff BID.\n4. Albuterol HFA 90 mcg 2 puffs Q4H PRN wheeze.\n5. Propranolol 40 mg PO BID (for newly identified tachycardia & labile hypertension).\n6. Ketorolac (Toradol) 10 mg PO Q6H PRN pleuritic chest pain.\nINSTRUCTIONS: Follow up with Pulmonology in 1 week. Check peak flow daily.\nRED FLAGS: Peak flow < 50%, accessory muscle use, cyanosis, stridor.",
+      "critical_hazards": [
+        "Propranolol + Asthma: Non-selective beta blocker induces severe life-threatening bronchospasm.",
+        "Aspirin/Ketorolac + AERD: Patient has Aspirin-Exacerbated Respiratory Disease; NSAIDs trigger severe anaphylactoid asthma attack.",
+        "Ciprofloxacin + Prednisone: Steroid + Fluoroquinolone drastically elevates Achilles tendon rupture danger."
+      ],
+      "tags": ["Pulmonology", "Asthma", "Black Box Warning", "ESL"]
+    }
+  ]
+}

@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareGuardian | Multimodal Clinical Discharge & Drug Interaction Guardian</title>
+  <meta name="description" content="AI-Powered Multimodal Clinical Discharge Summary & Drug Interaction Guardian for Healthcare & Universal Accessibility.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="theme-default font-standard">
+
+  <!-- ==========================================================================
+       Top Navigation Bar (Cardiovita Style)
+       ========================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <!-- Brand Logo -->
+      <a href="#hero" class="brand-wrapper" aria-label="CareGuardian Home">
+        <div class="brand-logo-icon" aria-hidden="true">🫀</div>
+        <div>
+          <div class="brand-title">CAREGUARDIAN <span>CLINICAL</span></div>
+          <div class="brand-sub">Cardiology & Discharge Safety Center</div>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#workspace" class="nav-link">Guardian Workspace</a>
+        <a href="#about" class="nav-link">About Center</a>
+        <a href="#specialists" class="nav-link">Specialist Models</a>
+        <a href="#technology" class="nav-link">Technology</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Right Action & Emergency Phone -->
+      <div class="header-right">
+        <a href="tel:+15551234567" class="emergency-phone" title="24/7 Clinical Emergency Line">
+          <span class="phone-icon" aria-hidden="true">📞</span>
+          <span>+1 (555) 123-4567</span>
+        </a>
+        <a href="#workspace" class="btn-book-nav">
+          <span aria-hidden="true">🛡️</span> Run Guardian
+        </a>
+      </div>
+    </div>
+
+    <!-- Accessibility Strip -->
+    <div class="a11y-toolbar" role="region" aria-label="Accessibility Customization">
+      <div class="a11y-toolbar-inner">
+        <!-- Font Size Scaler -->
+        <div class="a11y-group">
+          <label for="font-scale-select" class="a11y-label">Text Size:</label>
+          <select id="font-scale-select" class="a11y-select" aria-label="Adjust font size">
+            <option value="scale-100">Normal (100%)</option>
+            <option value="scale-120">Large (120%)</option>
+            <option value="scale-140">Extra Large (140%)</option>
+            <option value="scale-160">Maximum (160%)</option>
+          </select>
+        </div>
+
+        <!-- Dyslexia Font Toggle -->
+        <button id="toggle-dyslexia" class="a11y-btn" aria-pressed="false" title="Switch to High-Legibility Font for Dyslexia">
+          <span aria-hidden="true">🔤</span> Legible Font
+        </button>
+
+        <!-- High Contrast Toggle -->
+        <button id="toggle-contrast" class="a11y-btn" aria-pressed="false" title="Toggle Ultra-High Contrast Mode (WCAG AAA)">
+          <span aria-hidden="true">🌓</span> High Contrast
+        </button>
+
+        <!-- Voice Speed -->
+        <div class="a11y-group">
+          <label for="speech-rate-select" class="a11y-label">Voice Speed:</label>
+          <select id="speech-rate-select" class="a11y-select" aria-label="Speech synthesis reading rate">
+            <option value="0.8">Gentle / Elderly (0.8x)</option>
+            <option value="1.0" selected>Standard (1.0x)</option>
+            <option value="1.2">Fast (1.2x)</option>
+          </select>
+        </div>
+
+        <!-- Master Read-Aloud Button -->
+        <button id="btn-master-tts" class="a11y-btn btn-tts-strip" title="Listen to Patient Care Plan">
+          <span aria-hidden="true">🔊</span> <span id="tts-btn-text">Read Aloud</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ==========================================================================
+         HERO SECTION (Matching Cardiovita: Doctor, Holographic Heart, Vitals HUD)
+         ========================================================================== -->
+    <section class="hero-cardiovita" id="hero" aria-label="Clinical Introduction">
+      <div class="hero-grid">
+        <!-- Left: Headline & Actions -->
+        <div class="hero-text-col">
+          <div class="hero-pill-badge">
+            <span class="pulse-dot" aria-hidden="true"></span>
+            <span>Cardiovascular & Clinical Safety AI • Open Biomedical Intelligence</span>
+          </div>
+          <h1 class="hero-title-main">
+            Complete Clinical Care
+            <span class="hero-title-crimson">For A Healthier Life</span>
+          </h1>
+          <p class="hero-lead-text">
+            At CareGuardian Clinical Center, we combine advanced open biomedical AI with compassionate healthcare to diagnose, simplify, and prevent critical drug-drug interactions and discharge readmissions — <strong>because every heartbeat matters</strong>.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#workspace" class="btn-hero-primary">
+              <span aria-hidden="true">🛡️</span> Launch Guardian AI
+            </a>
+            <button id="btn-hero-listen" class="btn-hero-secondary" onclick="document.getElementById('btn-master-tts').click()">
+              <span aria-hidden="true">🔊</span> Listen To Summary
+            </button>
+          </div>
+
+          <!-- 3 Hero Key Features -->
+          <div class="hero-features-row">
+            <div class="hero-feat-item">
+              <div class="hero-feat-icon" aria-hidden="true">🚨</div>
+              <div>
+                <span class="hero-feat-text">24/7 Red Flags</span>
+                <span class="hero-feat-sub">Emergency Safety Triage</span>
+              </div>
+            </div>
+            <div class="hero-feat-item">
+              <div class="hero-feat-icon" aria-hidden="true">🔬</div>
+              <div>
+                <span class="hero-feat-text">Advanced AI Models</span>
+                <span class="hero-feat-sub">Hugging Face & RxNav</span>
+              </div>
+            </div>
+            <div class="hero-feat-item">
+              <div class="hero-feat-icon" aria-hidden="true">♿</div>
+              <div>
+                <span class="hero-feat-text">Universal Access</span>
+                <span class="hero-feat-sub">WCAG 2.2 AAA & Voice</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Holographic Medical HUD & 3D Heart -->
+        <div class="hero-visual-card">
+          <div class="card-top-hud">
+            <div class="hud-pulse">
+              <span class="pulse-dot"></span>
+              <span>PATIENT MONITOR: ONLINE</span>
+            </div>
+            <span>SINUS RHYTHM • NORMAL</span>
+          </div>
+
+          <div class="hologram-stage">
+            <!-- Glowing Anatomical Heart SVG -->
+            <svg class="holographic-heart-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M50 88C50 88 15 62 15 36C15 22.7 25.7 12 39 12C45.2 12 50 16 50 16C50 16 54.8 12 61 12C74.3 12 85 22.7 85 36C85 62 50 88 50 88Z" 
+                    fill="url(#crimson-radial)" stroke="#ff2b47" stroke-width="2" />
+              <!-- Internal Chamber & Aorta Lines -->
+              <path d="M50 20V50M42 32L34 40M58 32L66 40M50 50L35 70M50 50L65 70" stroke="#fecdd3" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 3"/>
+              <defs>
+                <radialGradient id="crimson-radial" cx="50" cy="40" r="45" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#ff2b47" stop-opacity="0.85"/>
+                  <stop offset="0.6" stop-color="#be123c" stop-opacity="0.9"/>
+                  <stop offset="1" stop-color="#4c0519" stop-opacity="0.95"/>
+                </radialGradient>
+              </defs>
+            </svg>
+
+            <!-- Vitals Real-Time HUD -->
+            <div class="vitals-hud-grid">
+              <div class="vital-box">
+                <span class="vital-val red-glow">72</span>
+                <span class="vital-lbl">Heart Rate (BPM)</span>
+              </div>
+              <div class="vital-box">
+                <span class="vital-val">120/80</span>
+                <span class="vital-lbl">Blood Pressure</span>
+              </div>
+              <div class="vital-box">
+                <span class="vital-val red-glow">98%</span>
+                <span class="vital-lbl">SpO2 Oxygen</span>
+              </div>
+            </div>
+
+            <!-- Animated ECG Waveform -->
+            <div class="ecg-live-container" aria-label="Cardiac ECG Monitor">
+              <svg class="ecg-line-svg" viewBox="0 0 500 50" preserveAspectRatio="none">
+                <path class="ecg-path" d="M0 25 L80 25 L95 25 L105 5 L115 45 L125 15 L135 30 L145 25 L230 25 L245 25 L255 5 L265 45 L275 15 L285 30 L295 25 L380 25 L395 25 L405 5 L415 45 L425 15 L435 30 L445 25 L500 25"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SERVICES / GUARDIAN CAPABILITIES (6 Cards matching Cardiovita)
+         ========================================================================== -->
+    <section class="services-section" id="services" aria-label="Clinical Services">
+      <div class="section-header-centered">
+        <span class="section-tag">Our Heart Care & Safety Services</span>
+        <h2 class="section-title-lg">Comprehensive Clinical Protection</h2>
+        <p class="section-subtitle">
+          From hospital discharge to ongoing home recovery, our multimodal clinical pipeline protects cardiovascular and polypharmacy patients from adverse drug events.
+        </p>
+      </div>
+
+      <div class="services-grid-6">
+        <!-- 1. Preventive Cardiology & Polypharmacy -->
+        <article class="service-card">
+          <div class="service-icon-box" aria-hidden="true">🫀</div>
+          <h3 class="service-card-title">Preventive Clinical Safety</h3>
+          <p class="service-card-desc">
+            Pre-assessment and risk screening for patients discharged with multiple medications, preventing polypharmacy drug-drug interactions before complications occur.
+          </p>
+          <a href="#workspace" class="service-card-link">Run Assessment →</a>
+        </article>
+
+        <!-- 2. Diagnostic & OCR Services -->
+        <article class="service-card">
+          <div class="service-icon-box" aria-hidden="true">📸</div>
+          <h3 class="service-card-title">Diagnostic & Vision OCR</h3>
+          <p class="service-card-desc">
+            Computer vision edge extraction for paper discharge instructions, handwritten doctor notes, and prescription pill bottles with automatic entity recognition.
+          </p>
+          <a href="#workspace" class="service-card-link" onclick="document.getElementById('tab-ocr').click()">Scan Prescription →</a>
+        </article>
+
+        <!-- 3. Interventional DDI Shield -->
+        <article class="service-card">
+          <div class="service-icon-box" aria-hidden="true">🛡️</div>
+          <h3 class="service-card-title">Interventional DDI Shield</h3>
+          <p class="service-card-desc">
+            Rigorous cross-checking against 63,000+ drug pairs, food contraindications (grapefruit, alcohol, vitamin K), and organ contraindications (CKD, asthma).
+          </p>
+          <a href="#workspace" class="service-card-link">Check Interactions →</a>
+        </article>
+
+        <!-- 4. Health Literacy & Plain Language -->
+        <article class="service-card">
+          <div class="service-icon-box" aria-hidden="true">📖</div>
+          <h3 class="service-card-title">5th-Grade Care Plans</h3>
+          <p class="service-card-desc">
+            Translates dense medical Latin jargon (s/p STEMI, DES, CABG, BID, QHS, PRN) into compassionate, low-health-literacy instructions anyone can follow.
+          </p>
+          <a href="#workspace" class="service-card-link">View Translation →</a>
+        </article>
+
+        <!-- 5. Voice & Auditory Access -->
+        <article class="service-card">
+          <div class="service-icon-box" aria-hidden="true">🎙️</div>
+          <h3 class="service-card-title">Speech & Voice Narration</h3>
+          <p class="service-card-desc">
+            Full hands-free audio accessibility powered by Web Speech API. Includes elderly-friendly 0.8x speech pacing and voice symptom dictation.
+          </p>
+          <a href="#workspace" class="service-card-link">Test Audio →</a>
+        </article>
+
+        <!-- 6. Emergency Discharge Passport -->
+        <article class="service-card">
+          <div class="service-icon-box" aria-hidden="true">🖨️</div>
+          <h3 class="service-card-title">Emergency SOS Passport</h3>
+          <p class="service-card-desc">
+            One-click printable accessible medical passport and foldable wallet card that communicates vital anticoagulant alerts to first responders and caregivers.
+          </p>
+          <a href="passport.html" target="_blank" class="service-card-link">Generate Passport →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         STATS COUNTER RIBBON WITH ECG WAVEFORM
+         ========================================================================== -->
+    <section class="stats-ribbon" aria-label="Clinical Metrics">
+      <div class="stats-container">
+        <div class="stat-item">
+          <span class="stat-num-lg">25,000<span>+</span></span>
+          <span class="stat-title-sm">Analyzed Cases</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num-lg">107<span>+</span></span>
+          <span class="stat-title-sm">Biomedical Entities</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num-lg">45<span>+</span></span>
+          <span class="stat-title-sm">Critical DDI Rules</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num-lg">100<span>%</span></span>
+          <span class="stat-title-sm">Test Verification</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num-lg">AAA</span>
+          <span class="stat-title-sm">WCAG Conformance</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         INTERACTIVE OPERATIONAL WORKSPACE (The Core Application Engine)
+         ========================================================================== -->
+    <section class="workspace-section" id="workspace" aria-label="Interactive Clinical Workspace">
+      <div class="section-header-centered">
+        <span class="section-tag">Interactive Clinical Guardian</span>
+        <h2 class="section-title-lg">Operational Safety Console</h2>
+        <p class="section-subtitle">
+          Test real hospital discharge cases or enter custom notes. Evaluate interactions in real-time, generate 5th-grade care plans, and interact via voice.
+        </p>
+      </div>
+
+      <div class="workspace-container-card">
+        <div class="workspace-grid">
+          
+          <!-- LEFT COLUMN: Input & Multimodal Ingestion -->
+          <section class="panel input-panel" aria-labelledby="input-heading">
+            <div class="panel-header">
+              <h2 id="input-heading" class="panel-title">
+                <span aria-hidden="true">📥</span> Clinical Discharge Input
+              </h2>
+              <span class="panel-tag">Multimodal Ingestion</span>
+            </div>
+
+            <!-- Sample Case Selector -->
+            <div class="form-group">
+              <label for="sample-selector" class="field-label">
+                <strong>Choose a Real-World Hospital Discharge Case:</strong>
+              </label>
+              <select id="sample-selector" class="field-select">
+                <option value="">-- Select a Clinical Case Study --</option>
+                <option value="CASE-01" selected>Case 1: Cardiology - STEMI with Stent (Triple Therapy Bleed Risk)</option>
+                <option value="CASE-02">Case 2: Geriatrics - Polypharmacy & Sepsis with Kidney Impairment</option>
+                <option value="CASE-03">Case 3: Pulmonology - Severe Asthma & Pneumonia (Black Box Contraindications)</option>
+                <option value="custom">✏️ Custom Discharge Note / Scratchpad</option>
+              </select>
+            </div>
+
+            <!-- Multimodal Ingestion Tabs -->
+            <div class="multimodal-tabs" role="tablist" aria-label="Input Modality">
+              <button class="tab-btn active" role="tab" aria-selected="true" id="tab-text" data-target="view-text">
+                ✍️ Doctor's Notes (Text)
+              </button>
+              <button class="tab-btn" role="tab" aria-selected="false" id="tab-ocr" data-target="view-ocr">
+                📷 Scan / OCR Photo
+              </button>
+              <button class="tab-btn" role="tab" aria-selected="false" id="tab-voice" data-target="view-voice">
+                🎙️ Speech Dictation
+              </button>
+            </div>
+
+            <!-- Modality 1: Raw Text Input -->
+            <div id="view-text" class="tab-content active" role="tabpanel" aria-labelledby="tab-text">
+              <div class="form-group">
+                <div class="field-header">
+                  <label for="clinical-textarea" class="field-label">Physician Discharge Summary Text:</label>
+                  <button id="btn-clear-text" class="text-btn" type="button">Clear Text</button>
+                </div>
+                <textarea id="clinical-textarea" class="clinical-input" rows="11" spellcheck="false" placeholder="Paste or type hospital discharge summary here..."></textarea>
+              </div>
+            </div>
+
+            <!-- Modality 2: OCR & Camera Upload -->
+            <div id="view-ocr" class="tab-content" role="tabpanel" aria-labelledby="tab-ocr" hidden>
+              <div class="upload-dropzone" id="dropzone">
+                <div class="dropzone-icon" aria-hidden="true">📸</div>
+                <p class="dropzone-prompt"><strong>Drag & Drop</strong> scanned discharge paper or pill bottle photo</p>
+                <p class="dropzone-sub">PNG, JPG, WebP supported with high-contrast edge detection.</p>
+                <input type="file" id="file-input" accept="image/*" class="visually-hidden">
+                <div class="dropzone-actions">
+                  <button type="button" class="btn-secondary" onclick="document.getElementById('file-input').click()">
+                    📂 Browse Files
+                  </button>
+                  <button type="button" class="btn-secondary" id="btn-load-sample-rx">
+                    🧪 Load Sample Prescription Scan
+                  </button>
+                </div>
+              </div>
+              <div id="ocr-preview-container" class="ocr-preview" hidden>
+                <img id="ocr-image-preview" alt="Uploaded clinical document preview">
+                <div class="ocr-status" id="ocr-status">
+                  <span class="pulse-dot" aria-hidden="true"></span> Extracting clinical tokens via Vision Engine...
+                </div>
+              </div>
+            </div>
+
+            <!-- Modality 3: Speech Dictation -->
+            <div id="view-voice" class="tab-content" role="tabpanel" aria-labelledby="tab-voice" hidden>
+              <div class="voice-ingest-card">
+                <button id="btn-mic-toggle" class="mic-pulse-btn" aria-pressed="false" aria-label="Start Voice Recording">
+                  🎙️
+                </button>
+                <p id="mic-status-text" class="mic-caption">Click to start hands-free voice dictation</p>
+                <div class="voice-transcript-box">
+                  <label for="live-speech-transcript" class="field-label">Live Spoken Transcript:</label>
+                  <div id="live-speech-transcript" class="live-transcript" tabindex="0" role="textbox" aria-readonly="true">
+                    Voice transcript will appear here in real-time...
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Patient Context Collapsible -->
+            <details class="patient-details-collapsible" open>
+              <summary class="details-summary">
+                <strong>👤 Patient Context & Clinical Profile</strong>
+                <span class="summary-sub">(Customizes interaction algorithms)</span>
+              </summary>
+              <div class="patient-fields-grid">
+                <div class="form-group">
+                  <label for="patient-name-input" class="field-label-sm">Patient Name:</label>
+                  <input type="text" id="patient-name-input" class="field-input-sm" value="Robert Miller">
+                </div>
+                <div class="form-group">
+                  <label for="patient-age-input" class="field-label-sm">Age:</label>
+                  <input type="number" id="patient-age-input" class="field-input-sm" value="68">
+                </div>
+                <div class="form-group" style="grid-column: 1 / -1;">
+                  <label for="patient-conditions-input" class="field-label-sm">Documented Conditions:</label>
+                  <input type="text" id="patient-conditions-input" class="field-input-sm" value="Coronary Artery Disease, Type 2 Diabetes, Hypertension, GERD">
+                </div>
+                <div class="form-group" style="grid-column: 1 / -1;">
+                  <label for="patient-allergies-input" class="field-label-sm">Documented Allergies:</label>
+                  <input type="text" id="patient-allergies-input" class="field-input-sm" value="Sulfa drugs (hives)">
+                </div>
+              </div>
+            </details>
+
+            <!-- Analyze Trigger Button -->
+            <div class="action-bar">
+              <button id="btn-analyze" class="btn-primary" type="button">
+                <span aria-hidden="true">🛡️</span> Run Clinical Safety Guardian & Simplify
+              </button>
+            </div>
+          </section>
+
+          <!-- RIGHT COLUMN: Analysis Dashboard & Safety Guardian -->
+          <section class="panel output-panel" aria-labelledby="output-heading" aria-live="polite">
+            <div class="panel-header">
+              <h2 id="output-heading" class="panel-title">
+                <span aria-hidden="true">📊</span> Safety Assessment & Care Plan
+              </h2>
+              <div class="header-right">
+                <button id="btn-open-passport" class="btn-secondary btn-sm" title="Print Accessible Discharge Passport">
+                  🖨️ Printable Passport
+                </button>
+              </div>
+            </div>
+
+            <!-- Overall Risk Banner -->
+            <div id="risk-banner" class="risk-card risk-critical" role="alert">
+              <div class="risk-icon" aria-hidden="true">🚨</div>
+              <div class="risk-content">
+                <div class="risk-badge">CRITICAL SAFETY ALERT</div>
+                <h3 id="risk-title" class="risk-heading">Immediate Prescriber Intervention Required</h3>
+                <p id="risk-description" class="risk-text">
+                  High-risk drug combinations detected. Severe bleeding hazard and drug efficacy interference identified.
+                </p>
+              </div>
+              <div class="risk-stats">
+                <div class="stat-box">
+                  <span id="stat-critical" class="stat-num text-critical">2</span>
+                  <span class="stat-label">Critical</span>
+                </div>
+                <div class="stat-box">
+                  <span id="stat-meds" class="stat-num">7</span>
+                  <span class="stat-label">Active Meds</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Safety Tabs (Alerts, Schedule, Plain Language, Ask AI) -->
+            <div class="results-tabs" role="tablist" aria-label="Analysis Results">
+              <button class="res-tab-btn active" role="tab" aria-selected="true" data-panel="tab-alerts">
+                ⚠️ Drug & Food Alerts (<span id="alert-tab-count">3</span>)
+              </button>
+              <button class="res-tab-btn" role="tab" aria-selected="false" data-panel="tab-schedule">
+                📅 Medication Schedule
+              </button>
+              <button class="res-tab-btn" role="tab" aria-selected="false" data-panel="tab-plain">
+                📖 5th-Grade Care Plan
+              </button>
+              <button class="res-tab-btn" role="tab" aria-selected="false" data-panel="tab-chat">
+                💬 Ask My Guardian (AI)
+              </button>
+            </div>
+
+            <!-- Tab 1: Interaction Alerts -->
+            <div id="tab-alerts" class="res-panel active" role="tabpanel">
+              <div id="interaction-alerts-list" class="alerts-container">
+                <!-- Dynamically populated by app.js -->
+              </div>
+            </div>
+
+            <!-- Tab 2: Accessible Medication Timetable -->
+            <div id="tab-schedule" class="res-panel" role="tabpanel" hidden>
+              <div class="schedule-intro">
+                <p><strong>Universal Accessible Timetable:</strong> Color-coded time blocks with dietary guidance to prevent toxic peak levels or missed doses.</p>
+              </div>
+              <div id="medication-schedule-grid" class="schedule-grid">
+                <!-- Dynamically populated by app.js -->
+              </div>
+            </div>
+
+            <!-- Tab 3: 5th-Grade Plain Language Patient Plan -->
+            <div id="tab-plain" class="res-panel" role="tabpanel" hidden>
+              <div class="plain-plan-card">
+                <div class="plain-header">
+                  <span class="plain-pill">Universal Health Literacy Grade 5</span>
+                  <button id="btn-read-plain-plan" class="btn-voice-inline" title="Read this care plan aloud">
+                    🔊 Listen to Plan
+                  </button>
+                </div>
+                <div id="plain-plan-content" class="plain-body">
+                  <!-- Dynamically populated by app.js -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab 4: Interactive Patient Guardian Chatbot -->
+            <div id="tab-chat" class="res-panel" role="tabpanel" hidden>
+              <div class="chat-card">
+                <div class="chat-header">
+                  <div class="chat-avatar" aria-hidden="true">🩺</div>
+                  <div>
+                    <strong>Discharge Care Companion</strong>
+                    <p class="chat-sub">Ask questions about food, missed doses, pain medications, or showers.</p>
+                  </div>
+                </div>
+                <div id="chat-messages" class="chat-history" role="log" aria-live="polite">
+                  <div class="chat-msg bot-msg">
+                    <p>Hello! I am your clinical care guardian. Ask me questions like: <em>"Can I take Advil with my blood pressure medicine?"</em> or <em>"What should I do if I missed a pill?"</em></p>
+                  </div>
+                </div>
+                <div class="chat-input-row">
+                  <input type="text" id="chat-user-input" class="chat-input" placeholder="Ask a question about your medicines or recovery..." aria-label="Patient question">
+                  <button id="btn-chat-mic" class="chat-mic-btn" type="button" title="Speak your question">🎙️</button>
+                  <button id="btn-chat-send" class="btn-primary" style="width: auto; padding: 0.65rem 1.25rem;" type="button">Ask</button>
+                </div>
+                <div class="quick-questions">
+                  <span class="quick-label">Suggestions:</span>
+                  <button class="quick-chip" data-q="Can I take Advil or Ibuprofen for my headache?">Can I take Advil?</button>
+                  <button class="quick-chip" data-q="Can I drink grapefruit juice or alcohol?">Can I have grapefruit or wine?</button>
+                  <button class="quick-chip" data-q="What should I do if I miss my morning dose?">What if I miss a dose?</button>
+                </div>
+              </div>
+            </div>
+
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         "A CENTER BUILT AROUND YOUR HEART" / ABOUT ARCHITECTURE
+         ========================================================================== -->
+    <section class="about-section-cardiovita" id="about" aria-label="About Clinical Center">
+      <div class="about-split-grid">
+        <!-- Left: Hospital Building Card -->
+        <div class="hospital-building-card">
+          <!-- Stylized Medical Center Graphic SVG -->
+          <svg viewBox="0 0 500 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="500" height="380" fill="#07090e"/>
+            <path d="M40 380V120H220V380H40Z" fill="#0d131e" stroke="#1e293b" stroke-width="2"/>
+            <path d="M220 380V80H460V380H220Z" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
+            <!-- Windows grid with glowing amber/crimson lights -->
+            <rect x="60" y="140" width="30" height="40" rx="4" fill="#fbbf24" fill-opacity="0.8"/>
+            <rect x="110" y="140" width="30" height="40" rx="4" fill="#38bdf8" fill-opacity="0.5"/>
+            <rect x="160" y="140" width="30" height="40" rx="4" fill="#fbbf24" fill-opacity="0.8"/>
+            <rect x="60" y="200" width="30" height="40" rx="4" fill="#38bdf8" fill-opacity="0.4"/>
+            <rect x="110" y="200" width="30" height="40" rx="4" fill="#ef4444" fill-opacity="0.85"/>
+            <rect x="160" y="200" width="30" height="40" rx="4" fill="#fbbf24" fill-opacity="0.6"/>
+            <!-- Center Tower Windows -->
+            <rect x="250" y="110" width="35" height="45" rx="4" fill="#38bdf8" fill-opacity="0.7"/>
+            <rect x="310" y="110" width="35" height="45" rx="4" fill="#fbbf24" fill-opacity="0.8"/>
+            <rect x="370" y="110" width="35" height="45" rx="4" fill="#38bdf8" fill-opacity="0.6"/>
+            <rect x="250" y="180" width="35" height="45" rx="4" fill="#ef4444" fill-opacity="0.9"/>
+            <rect x="310" y="180" width="35" height="45" rx="4" fill="#38bdf8" fill-opacity="0.5"/>
+            <rect x="370" y="180" width="35" height="45" rx="4" fill="#fbbf24" fill-opacity="0.8"/>
+            <!-- Hospital Red Cross Sign -->
+            <circle cx="340" cy="50" r="24" fill="#dc2626" filter="drop-shadow(0 0 12px #dc2626)"/>
+            <rect x="335" y="36" width="10" height="28" fill="#ffffff" rx="2"/>
+            <rect x="326" y="45" width="28" height="10" fill="#ffffff" rx="2"/>
+            <!-- Ambient Red Road Glow -->
+            <path d="M0 380L180 300H500L500 380Z" fill="url(#road-glow)" opacity="0.6"/>
+            <defs>
+              <linearGradient id="road-glow" x1="250" y1="300" x2="250" y2="380" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#dc2626" stop-opacity="0.3"/>
+                <stop offset="1" stop-color="#07090e" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="building-overlay-badge">
+            <strong style="color: #ffffff; display: block; font-size: 0.95rem;">CareGuardian Medical Center</strong>
+            <span style="color: var(--crimson-bright); font-size: 0.78rem; font-weight: 700;">24/7 Acute Heart & Clinical Safety Hub</span>
+          </div>
+        </div>
+
+        <!-- Right: Description & Checklist -->
+        <div class="about-content-right">
+          <span class="section-tag">About CareGuardian</span>
+          <h2 class="section-title-lg">A Center Built Around Your Heart</h2>
+          <p class="section-subtitle">
+            CareGuardian Clinical Center is a multi-specialty clinical safety institution committed to excellence in clinical outcomes and compassionate patient care. Our team of expert algorithms, biomedical language models, and clinical datasets work together using the latest technology to provide personalized safety at discharge.
+          </p>
+
+          <div class="about-bullet-grid">
+            <div class="about-bullet-item">
+              <span class="bullet-dot-red"></span>
+              <span>Patient-Centered Care</span>
+            </div>
+            <div class="about-bullet-item">
+              <span class="bullet-dot-red"></span>
+              <span>Advanced AI Technology</span>
+            </div>
+            <div class="about-bullet-item">
+              <span class="bullet-dot-red"></span>
+              <span>Evidence-Based Toxicology</span>
+            </div>
+            <div class="about-bullet-item">
+              <span class="bullet-dot-red"></span>
+              <span>Universal Accessibility</span>
+            </div>
+          </div>
+
+          <div>
+            <a href="#services" class="btn-hero-primary" style="display: inline-flex;">
+              Learn More About Us →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SPECIALIST CARDIOLOGISTS / OPEN BIOMEDICAL MODELS (6 Cards)
+         ========================================================================== -->
+    <section class="doctors-section" id="specialists" aria-label="Specialist Clinical Models">
+      <div class="section-header-centered">
+        <span class="section-tag">Our Specialists & Intelligent Agents</span>
+        <h2 class="section-title-lg">Grounded In Open Clinical Science</h2>
+        <p class="section-subtitle">
+          Each component of the Guardian is powered by verified open-source biomedical transformers, Stanford clinical knowledge graphs, and government APIs.
+        </p>
+      </div>
+
+      <div class="doctors-grid-6">
+        <!-- 1. d4data Biomedical NER -->
+        <article class="doctor-profile-card">
+          <div class="doctor-avatar-box" aria-hidden="true">👨‍⚕️</div>
+          <h3 class="doc-name">Dr. Arjun Mehta</h3>
+          <div class="doc-title">Biomedical NER Lead</div>
+          <div class="doc-exp">d4data/biomedical-ner-all (HF)</div>
+        </article>
+
+        <!-- 2. Bio_ClinicalBERT -->
+        <article class="doctor-profile-card">
+          <div class="doctor-avatar-box" aria-hidden="true">👩‍⚕️</div>
+          <h3 class="doc-name">Dr. Priya Nair</h3>
+          <div class="doc-title">Clinical EHR Specialist</div>
+          <div class="doc-exp">Bio_ClinicalBERT (MIMIC-III)</div>
+        </article>
+
+        <!-- 3. NIH RxNav API -->
+        <article class="doctor-profile-card">
+          <div class="doctor-avatar-box" aria-hidden="true">👨‍⚕️</div>
+          <h3 class="doc-name">Dr. Rahul Desai</h3>
+          <div class="doc-title">Pharmacology Expert</div>
+          <div class="doc-exp">NIH NLM RxNav REST API</div>
+        </article>
+
+        <!-- 4. TWOSIDES Polypharmacy -->
+        <article class="doctor-profile-card">
+          <div class="doctor-avatar-box" aria-hidden="true">👩‍⚕️</div>
+          <h3 class="doc-name">Dr. Neha Kapoor</h3>
+          <div class="doc-title">Toxicology & DDI Lead</div>
+          <div class="doc-exp">TWOSIDES / Stanford SNAP</div>
+        </article>
+
+        <!-- 5. FDA MedWatch -->
+        <article class="doctor-profile-card">
+          <div class="doctor-avatar-box" aria-hidden="true">👨‍⚕️</div>
+          <h3 class="doc-name">Dr. Vivek Sharma</h3>
+          <div class="doc-title">Adverse Reaction Triage</div>
+          <div class="doc-exp">openFDA Clinical Safety</div>
+        </article>
+
+        <!-- 6. Accessibility & Speech -->
+        <article class="doctor-profile-card">
+          <div class="doctor-avatar-box" aria-hidden="true">👩‍⚕️</div>
+          <h3 class="doc-name">Dr. Ananya Iyer</h3>
+          <div class="doc-title">Accessibility & Speech Lead</div>
+          <div class="doc-exp">WCAG 2.2 AAA & Web Speech</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ADVANCED TECHNOLOGY, BETTER OUTCOMES (5 Preview Cards)
+         ========================================================================== -->
+    <section class="tech-section" id="technology" aria-label="Technology Showcase">
+      <div class="section-header-centered">
+        <span class="section-tag">Clinical Innovation</span>
+        <h2 class="section-title-lg">Advanced Technology, Better Outcomes</h2>
+        <p class="section-subtitle">
+          Explore the state-of-the-art modalities embedded into our multimodal clinical pipeline.
+        </p>
+      </div>
+
+      <div class="tech-grid-5">
+        <!-- 1. 3D Echocardiography / Vision -->
+        <div class="tech-card">
+          <div class="tech-img-box">
+            <svg viewBox="0 0 200 100" fill="none">
+              <path d="M20 80 Q100 20 180 80" stroke="#ff2b47" stroke-width="2"/>
+              <circle cx="100" cy="50" r="25" stroke="#38bdf8" stroke-dasharray="4 4"/>
+              <circle cx="100" cy="50" r="10" fill="#dc2626"/>
+            </svg>
+          </div>
+          <div class="tech-body">
+            <h3 class="tech-title">3D Vision & OCR</h3>
+            <p class="tech-desc">Optical character recognition for prescription slips and medication bottles.</p>
+          </div>
+        </div>
+
+        <!-- 2. Cardiac Cath Lab / DDI -->
+        <div class="tech-card">
+          <div class="tech-img-box">
+            <svg viewBox="0 0 200 100" fill="none">
+              <line x1="20" y1="50" x2="180" y2="50" stroke="#f59e0b" stroke-width="2"/>
+              <circle cx="60" cy="50" r="15" fill="#e11d48"/>
+              <circle cx="140" cy="50" r="15" fill="#0284c7"/>
+            </svg>
+          </div>
+          <div class="tech-body">
+            <h3 class="tech-title">Polypharmacy DDI Shield</h3>
+            <p class="tech-desc">Pairwise and triple therapy antithrombotic bleed hazard detection.</p>
+          </div>
+        </div>
+
+        <!-- 3. CT Coronary Angiography -->
+        <div class="tech-card">
+          <div class="tech-img-box">
+            <svg viewBox="0 0 200 100" fill="none">
+              <rect x="50" y="20" width="100" height="60" rx="8" stroke="#38bdf8" stroke-width="2"/>
+              <path d="M70 50H130" stroke="#ff2b47" stroke-width="3"/>
+            </svg>
+          </div>
+          <div class="tech-body">
+            <h3 class="tech-title">Health Literacy NLP</h3>
+            <p class="tech-desc">Medical jargon translation to CEFR A2/B1 5th-grade plain language.</p>
+          </div>
+        </div>
+
+        <!-- 4. Advanced Monitoring -->
+        <div class="tech-card">
+          <div class="tech-img-box">
+            <svg viewBox="0 0 200 100" fill="none">
+              <path d="M10 50L40 50L55 20L70 80L85 35L100 50L190 50" stroke="#10b981" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="tech-body">
+            <h3 class="tech-title">Audio & Speech Assist</h3>
+            <p class="tech-desc">Hands-free speech dictation and natural text-to-speech voice guidance.</p>
+          </div>
+        </div>
+
+        <!-- 5. Robotic Precision -->
+        <div class="tech-card">
+          <div class="tech-img-box">
+            <svg viewBox="0 0 200 100" fill="none">
+              <circle cx="100" cy="50" r="30" stroke="#ff2b47" stroke-width="2"/>
+              <rect x="90" y="40" width="20" height="20" fill="#ff2b47"/>
+            </svg>
+          </div>
+          <div class="tech-body">
+            <h3 class="tech-title">Printable SOS Passport</h3>
+            <p class="tech-desc">Emergency wallet cards for EMS personnel and caregivers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PATIENT & CLINICIAN FEEDBACK (3 Reviews)
+         ========================================================================== -->
+    <section class="reviews-section" aria-label="Clinical Reviews">
+      <div class="section-header-centered">
+        <span class="section-tag">Validated In Real Care</span>
+        <h2 class="section-title-lg">What Our Patients Say</h2>
+        <p class="section-subtitle">
+          Real feedback from patients and clinical providers who rely on CareGuardian during discharge transitions.
+        </p>
+      </div>
+
+      <div class="reviews-grid-3">
+        <div class="review-card">
+          <div class="star-rating">★★★★★</div>
+          <p class="review-quote">
+            "The care and attention I received at CareGuardian was exceptional. The plain language care plan explained my heart stent medicines clearly, and the visual schedule kept me from taking Advil with my blood thinners!"
+          </p>
+          <div class="reviewer-box">
+            <div class="reviewer-avatar" aria-hidden="true">👴</div>
+            <div>
+              <div class="reviewer-name">Rajesh K.</div>
+              <div class="reviewer-cond">Cardiology Stent Patient</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="star-rating">★★★★★</div>
+          <p class="review-quote">
+            "From prescription photo scan to voice read-aloud, the whole experience was amazing. The system flagged a dangerous antibiotic interaction with my mother's blood thinner immediately."
+          </p>
+          <div class="reviewer-box">
+            <div class="reviewer-avatar" aria-hidden="true">👩</div>
+            <div>
+              <div class="reviewer-name">Meera S.</div>
+              <div class="reviewer-cond">Geriatric Caregiver</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="star-rating">★★★★★</div>
+          <p class="review-quote">
+            "I had a complex polypharmacy discharge regimen and was overwhelmed. CareGuardian gave me a foldable wallet card and voice guidance that gave my entire family peace of mind."
+          </p>
+          <div class="reviewer-box">
+            <div class="reviewer-avatar" aria-hidden="true">👨</div>
+            <div>
+              <div class="reviewer-name">Sunil R.</div>
+              <div class="reviewer-cond">Post-Op CABG Patient</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PRE-FOOTER HIGH-IMPACT CTA BANNER
+         ========================================================================== -->
+    <section class="pre-footer-cta" id="contact" aria-label="Emergency Call to Action">
+      <div class="cta-banner-card">
+        <div class="cta-left">
+          <div class="cta-icon-badge" aria-hidden="true">🫀</div>
+          <div>
+            <h2 class="cta-title">Your Heart Deserves The Best Care</h2>
+            <p class="cta-sub">Run a clinical check today and take the first step towards a healthier, safer recovery.</p>
+          </div>
+        </div>
+        <div class="cta-right">
+          <a href="#workspace" class="btn-hero-primary" style="margin-bottom: 0.5rem;">
+            Run Clinical Guardian AI →
+          </a>
+          <span class="cta-call-text">OR CALL 24/7 CLINICAL LINE:</span>
+          <a href="tel:+15551234567" class="cta-call-num">+1 (555) 123-4567</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       SITE FOOTER (Cardiovita Style 5 Columns)
+       ========================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-top-grid">
+        <!-- Col 1: Brand Info -->
+        <div>
+          <div class="brand-wrapper" style="margin-bottom: 1rem;">
+            <div class="brand-logo-icon" aria-hidden="true">🫀</div>
+            <div>
+              <div class="brand-title">CAREGUARDIAN <span>CLINICAL</span></div>
+              <div class="brand-sub">Cardiology & Discharge Safety Center</div>
+            </div>
+          </div>
+          <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem;">
+            Dedicated to advancing clinical accessibility, eliminating adverse drug interactions, and providing evidence-based safety support across the hospital-to-home transition.
+          </p>
+          <div style="display: flex; gap: 0.5rem; color: var(--crimson-bright); font-size: 1.1rem;">
+            <span>🌐</span> <span>🛡️</span> <span>🔬</span> <span>♿</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-links-list">
+            <li><a href="#hero" class="footer-link">Home</a></li>
+            <li><a href="#about" class="footer-link">About Us</a></li>
+            <li><a href="#services" class="footer-link">Services</a></li>
+            <li><a href="#specialists" class="footer-link">Our Specialists</a></li>
+            <li><a href="#technology" class="footer-link">Technology</a></li>
+            <li><a href="#contact" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Patients -->
+        <div>
+          <h4 class="footer-col-title">Patients</h4>
+          <ul class="footer-links-list">
+            <li><a href="#workspace" class="footer-link">Run Assessment</a></li>
+            <li><a href="passport.html" target="_blank" class="footer-link">Discharge Passport</a></li>
+            <li><a href="#workspace" class="footer-link" onclick="document.getElementById('tab-plain').click()">Care Plans</a></li>
+            <li><a href="#workspace" class="footer-link" onclick="document.getElementById('tab-chat').click()">Ask My Guardian</a></li>
+            <li><a href="#services" class="footer-link">Emergency Red Flags</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Services -->
+        <div>
+          <h4 class="footer-col-title">Services</h4>
+          <ul class="footer-links-list">
+            <li><a href="#services" class="footer-link">Preventive Cardiology</a></li>
+            <li><a href="#services" class="footer-link">Diagnostic Vision OCR</a></li>
+            <li><a href="#services" class="footer-link">Interventional DDI Shield</a></li>
+            <li><a href="#services" class="footer-link">Health Literacy Engine</a></li>
+            <li><a href="#services" class="footer-link">Audio & Speech Access</a></li>
+            <li><a href="#services" class="footer-link">Cardiac Rehabilitation</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Contact -->
+        <div>
+          <h4 class="footer-col-title">Contact Us</h4>
+          <div class="footer-contact-item">
+            <span style="color: var(--crimson-bright);">📍</span>
+            <span>123 Heartbeat Avenue, Health City, NC 27701, USA</span>
+          </div>
+          <div class="footer-contact-item">
+            <span style="color: var(--crimson-bright);">📞</span>
+            <span>+1 (555) 123-4567</span>
+          </div>
+          <div class="footer-contact-item">
+            <span style="color: var(--crimson-bright);">✉️</span>
+            <span>guardian@careguardian-health.org</span>
+          </div>
+          <div class="footer-contact-item">
+            <span style="color: var(--crimson-bright);">🚨</span>
+            <span>24/7 Emergency Care Available</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Legal Disclaimer -->
+      <div style="padding-top: 2rem;">
+        <p class="footer-disclaimer-note">
+          ⚖️ <strong>Clinical Decision Support Disclaimer:</strong> CareGuardian is an assistive health technology grounded in open-source biomedical models (<a href="https://huggingface.co/d4data/biomedical-ner-all" target="_blank" rel="noopener" style="color: var(--crimson-bright);">d4data/biomedical-ner-all</a>, <a href="https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT" target="_blank" rel="noopener" style="color: var(--crimson-bright);">Bio_ClinicalBERT</a>) and NIH NLM RxNav data. It is designed to augment patient accessibility and alert clinicians during the discharge workflow. Always confirm prescription changes with a licensed healthcare provider before altering medication regimens.
+        </p>
+
+        <div class="footer-bottom-bar">
+          <div>© 2026 CareGuardian Cardiology & Clinical Safety Center. All Rights Reserved.</div>
+          <div style="display: flex; gap: 1.5rem;">
+            <span>Privacy Policy</span>
+            <span>Terms of Service</span>
+            <span>WCAG 2.2 AAA Compliant</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+{
+  "drugs": {
+    "warfarin": {
+      "rxcui": "11289",
+      "brand_names": ["Coumadin", "Jantoven"],
+      "class": "Anticoagulant (Vitamin K Antagonist)",
+      "take_with": "Consistent time every evening. Avoid sudden changes in green leafy vegetables.",
+      "critical_monitoring": "INR (Target typically 2.0 - 3.0)"
+    },
+    "aspirin": {
+      "rxcui": "1191",
+      "brand_names": ["Bayer", "Bufferin", "Ecotrin"],
+      "class": "Antiplatelet / Salicylate NSAID",
+      "take_with": "Take with a full meal or glass of milk to protect stomach.",
+      "critical_monitoring": "Signs of gastrointestinal bleeding"
+    },
+    "clopidogrel": {
+      "rxcui": "32968",
+      "brand_names": ["Plavix"],
+      "class": "Antiplatelet (P2Y12 Inhibitor)",
+      "take_with": "May be taken with or without food. Do not stop without cardiologist approval.",
+      "critical_monitoring": "Platelet function, avoid Omeprazole"
+    },
+    "atorvastatin": {
+      "rxcui": "83367",
+      "brand_names": ["Lipitor"],
+      "class": "HMG-CoA Reductase Inhibitor (Statin)",
+      "take_with": "Evening preferred. STRICTLY AVOID GRAPEFRUIT.",
+      "critical_monitoring": "Liver function, unexplained muscle pain"
+    },
+    "simvastatin": {
+      "rxcui": "36567",
+      "brand_names": ["Zocor"],
+      "class": "HMG-CoA Reductase Inhibitor (Statin)",
+      "take_with": "Take in the evening with food. STRICTLY AVOID GRAPEFRUIT.",
+      "critical_monitoring": "Muscle pain (rhabdomyolysis)"
+    },
+    "lisinopril": {
+      "rxcui": "29046",
+      "brand_names": ["Prinivil", "Zestril"],
+      "class": "ACE Inhibitor (Antihypertensive)",
+      "take_with": "May take with or without food. Avoid potassium salt substitutes.",
+      "critical_monitoring": "Blood pressure, serum potassium, kidney function (eGFR)"
+    },
+    "losartan": {
+      "rxcui": "52175",
+      "brand_names": ["Cozaar"],
+      "class": "Angiotensin II Receptor Blocker (ARB)",
+      "take_with": "With or without food. Stay well-hydrated.",
+      "critical_monitoring": "Blood pressure, serum potassium"
+    },
+    "metoprolol": {
+      "rxcui": "6918",
+      "brand_names": ["Lopressor", "Toprol-XL"],
+      "class": "Beta-1 Selective Adrenergic Blocker",
+      "take_with": "Take with or immediately after a meal.",
+      "critical_monitoring": "Pulse / Heart rate (hold if < 50 bpm), blood pressure"
+    },
+    "propranolol": {
+      "rxcui": "8787",
+      "brand_names": ["Inderal"],
+      "class": "Non-selective Beta Blocker",
+      "take_with": "Take with meals. CONTRAINDICATED in asthma/COPD.",
+      "critical_monitoring": "Heart rate, bronchospasm / wheezing"
+    },
+    "spironolactone": {
+      "rxcui": "9997",
+      "brand_names": ["Aldactone"],
+      "class": "Potassium-Sparing Diuretic / Aldosterone Antagonist",
+      "take_with": "Take in the morning with food to avoid nighttime urination.",
+      "critical_monitoring": "Serum potassium, gynecomastia"
+    },
+    "ciprofloxacin": {
+      "rxcui": "2551",
+      "brand_names": ["Cipro"],
+      "class": "Fluoroquinolone Antibacterial",
+      "take_with": "Drink plenty of water. Do NOT take with milk, yogurt, or calcium within 2 hours.",
+      "critical_monitoring": "Tendon pain, QT interval, INR if on Warfarin"
+    },
+    "ibuprofen": {
+      "rxcui": "5640",
+      "brand_names": ["Advil", "Motrin"],
+      "class": "Nonsteroidal Anti-inflammatory Drug (NSAID)",
+      "take_with": "ALWAYS take with food or milk.",
+      "critical_monitoring": "Kidney function, stomach pain, blood pressure"
+    },
+    "omeprazole": {
+      "rxcui": "7646",
+      "brand_names": ["Prilosec"],
+      "class": "Proton Pump Inhibitor (PPI)",
+      "take_with": "Take 30-60 minutes BEFORE the first meal of the day.",
+      "critical_monitoring": "Interacts with Clopidogrel; bone density long-term"
+    },
+    "levothyroxine": {
+      "rxcui": "10582",
+      "brand_names": ["Synthroid", "Levoxyl"],
+      "class": "Synthetic Thyroid Hormone",
+      "take_with": "First thing in the morning with a full glass of water, 60 minutes before breakfast.",
+      "critical_monitoring": "Separate from calcium/iron/vitamins by 4+ hours"
+    },
+    "prednisone": {
+      "rxcui": "8640",
+      "brand_names": ["Deltasone", "Rayos"],
+      "class": "Systemic Corticosteroid",
+      "take_with": "Take in the morning with a meal to reduce stomach irritation and insomnia.",
+      "critical_monitoring": "Blood sugar spikes, blood pressure, infection signs"
+    },
+    "metformin": {
+      "rxcui": "6809",
+      "brand_names": ["Glucophage"],
+      "class": "Biguanide Antidiabetic",
+      "take_with": "Take with meals to minimize stomach upset and diarrhea.",
+      "critical_monitoring": "Renal function (hold before IV contrast dye)"
+    },
+    "sildenafil": {
+      "rxcui": "136443",
+      "brand_names": ["Viagra", "Revatio"],
+      "class": "Phosphodiesterase-5 (PDE-5) Inhibitor",
+      "take_with": "Never combine with nitroglycerin. Take 30-60 mins prior to activity.",
+      "critical_monitoring": "Profound hypotension, priapism"
+    },
+    "nitroglycerin": {
+      "rxcui": "7435",
+      "brand_names": ["Nitrostat", "Nitrolingual"],
+      "class": "Vasodilator / Nitrate",
+      "take_with": "Sublingual: dissolve under tongue sitting down (causes dizziness).",
+      "critical_monitoring": "Blood pressure crash with PDE-5 inhibitors"
+    }
+  }
+}
