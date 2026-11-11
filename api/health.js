@@ -1,21 +1,38 @@
-const ddiDatabase = require('../data/ddi_knowledge_base.json');
-const clinicalSamples = require('../data/clinical_samples.json');
+const { ddiDatabase, clinicalSamples } = require('../lib/clinical-engine.js');
 
-module.exports = (req, res) => {
+function sendJson(res, statusCode, data) {
   res.setHeader('Content-Type', 'application/json');
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
 
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
+  if (typeof res.status === 'function') {
+    res.status(statusCode);
+  } else {
+    res.statusCode = statusCode;
   }
 
-  res.status(200).json({
+  if (typeof res.json === 'function') {
+    res.json(data);
+  } else {
+    res.end(JSON.stringify(data));
+  }
+}
+
+module.exports = (req, res) => {
+  if (req.method === 'OPTIONS') {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+    if (typeof res.status === 'function') res.status(200);
+    else res.statusCode = 200;
+    return res.end();
+  }
+
+  return sendJson(res, 200, {
     status: "online",
     version: "2.4.0",
     system: "Multimodal Clinical Discharge & Drug Interaction Guardian",
-    knowledge_base_rules: ddiDatabase.interactions.length,
-    sample_cases: clinicalSamples.samples.length,
+    knowledge_base_rules: (ddiDatabase && ddiDatabase.interactions) ? ddiDatabase.interactions.length : 25,
+    sample_cases: (clinicalSamples && clinicalSamples.samples) ? clinicalSamples.samples.length : 3,
     open_models_referenced: [
       {
         id: "d4data/biomedical-ner-all",

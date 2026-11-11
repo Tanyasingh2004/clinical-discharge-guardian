@@ -2,30 +2,56 @@ const {
   extractClinicalEntities,
   evaluateInteractions,
   translateToPlainLanguage
-} = require('../server.js');
+} = require('../lib/clinical-engine.js');
 
-module.exports = (req, res) => {
+function sendJson(res, statusCode, data) {
   res.setHeader('Content-Type', 'application/json');
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
+  if (typeof res.status === 'function') {
+    res.status(statusCode);
+  } else {
+    res.statusCode = statusCode;
+  }
+
+  if (typeof res.json === 'function') {
+    res.json(data);
+  } else {
+    res.end(JSON.stringify(data));
+  }
+}
+
+async function getBody(req) {
+  if (req.body) {
+    if (typeof req.body === 'string') {
+      try { return JSON.parse(req.body); } catch (e) { return {}; }
+    }
+    return req.body;
+  }
+  return new Promise((resolve) => {
+    let body = '';
+    req.on('data', chunk => body += chunk);
+    req.on('end', () => {
+      try { resolve(JSON.parse(body || '{}')); } catch (e) { resolve({}); }
+    });
+    req.on('error', () => resolve({}));
+  });
+}
+
+module.exports = async (req, res) => {
   if (req.method === 'OPTIONS') {
-    return res.status(200).end();
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    if (typeof res.status === 'function') res.status(200);
+    else res.statusCode = 200;
+    return res.end();
   }
 
   try {
-    let payload = req.body;
-    if (typeof payload === 'string') {
-      try {
-        payload = JSON.parse(payload);
-      } catch (e) {
-        payload = {};
-      }
-    } else if (!payload) {
-      payload = {};
-    }
-
+    const payload = await getBody(req);
     const rawClinicalText = payload.text || '';
     const patientInfo = payload.patient || {};
 
@@ -57,7 +83,7 @@ module.exports = (req, res) => {
       as_needed: extracted.medications.filter(m => m.schedule_times.some(t => t.includes('Needed')))
     };
 
-    return res.status(200).json({
+    return sendJson(res, 200, {
       success: true,
       timestamp: new Date().toISOString(),
       patient: {
@@ -72,6 +98,6 @@ module.exports = (req, res) => {
       plain_language_guide: plainLanguage
     });
   } catch (err) {
-    return res.status(400).json({ error: err.message });
+    return sendJson(res, 400, { error: err.message });
   }
 };

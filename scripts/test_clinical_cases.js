@@ -9,7 +9,7 @@ const {
   translateToPlainLanguage,
   clinicalSamples,
   ddiDatabase
-} = require('../server.js');
+} = require('../lib/clinical-engine.js');
 
 console.log("==================================================================");
 console.log(" 🏥 CareGuardian Comprehensive Clinical Engine Verification");
