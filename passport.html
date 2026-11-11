@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareGuardian | Patient Discharge Passport & Emergency Wallet Card</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background: #07090e;
+      color: #ffffff;
+      padding: 2rem;
+    }
+    .passport-page {
+      max-width: 880px;
+      margin: 0 auto;
+      background: #0c1017;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.8), 0 0 30px rgba(225, 29, 72, 0.15);
+      border: 1px solid rgba(225, 29, 72, 0.3);
+    }
+    .passport-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid #dc2626;
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .passport-brand {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+    .passport-brand span {
+      color: #ff2b47;
+    }
+    .passport-badge {
+      background: rgba(225, 29, 72, 0.15);
+      color: #ff2b47;
+      border: 1px solid rgba(225, 29, 72, 0.3);
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    .patient-strip {
+      background: #07090e;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .strip-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .strip-val {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .wallet-card-section {
+      border: 2px dashed rgba(225, 29, 72, 0.4);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      background: rgba(7, 9, 14, 0.6);
+    }
+    .wallet-card-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #94a3b8;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .wallet-card-preview {
+      border: 2px solid #dc2626;
+      border-radius: 8px;
+      padding: 1.25rem;
+      background: #0f1420;
+      max-width: 500px;
+      margin: 0 auto;
+      box-shadow: 0 0 20px rgba(220, 38, 38, 0.25);
+    }
+    .wallet-card-header {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 2px solid #ef4444;
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .print-bar {
+      max-width: 880px;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        padding: 0;
+      }
+      .print-bar {
+        display: none !important;
+      }
+      .passport-page {
+        box-shadow: none !important;
+        border: none !important;
+        background: #ffffff !important;
+        padding: 0 !important;
+        color: #000000 !important;
+      }
+      .passport-brand, .strip-val, .wallet-card-preview {
+        color: #000000 !important;
+      }
+      .patient-strip, .wallet-card-preview {
+        background: #f8fafc !important;
+        border: 1px solid #000000 !important;
+      }
+      .time-slot-card {
+        background: #ffffff !important;
+        border: 1px solid #000000 !important;
+      }
+      .time-slot-header {
+        background: #f1f5f9 !important;
+        color: #000000 !important;
+      }
+      .med-card-row {
+        background: #ffffff !important;
+        color: #000000 !important;
+        border: 1px solid #e2e8f0 !important;
+      }
+      .med-name {
+        color: #000000 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="print-bar">
+    <a href="index.html" class="btn-secondary">← Back to Guardian Dashboard</a>
+    <button onclick="window.print()" class="btn-primary" style="width: auto; padding: 0.6rem 1.6rem;">
+      🖨️ Print Discharge Passport & Wallet Card
+    </button>
+  </div>
+
+  <main class="passport-page">
+    <header class="passport-header">
+      <div>
+        <h1 class="passport-brand">🫀 CAREGUARDIAN <span>PASSPORT</span></h1>
+        <p style="color: #94a3b8; font-size: 0.92rem;">Cardiovascular & Polypharmacy Discharge Safety Document</p>
+      </div>
+      <div class="passport-badge">
+        Grade 5 Reading Level • WCAG AAA
+      </div>
+    </header>
+
+    <!-- Patient Emergency Demographic Strip -->
+    <section class="patient-strip" aria-label="Patient Emergency Details">
+      <div>
+        <div class="strip-label">Patient Name</div>
+        <div class="strip-val" id="p-name">Robert Miller</div>
+      </div>
+      <div>
+        <div class="strip-label">Age</div>
+        <div class="strip-val" id="p-age">68</div>
+      </div>
+      <div>
+        <div class="strip-label">Documented Allergies</div>
+        <div class="strip-val" id="p-allergies" style="color: #f87171;">Sulfa drugs</div>
+      </div>
+      <div>
+        <div class="strip-label">Primary Conditions</div>
+        <div class="strip-val" id="p-conditions">Coronary Disease, Diabetes, Hypertension</div>
+      </div>
+    </section>
+
+    <!-- Critical Red Flag Warnings -->
+    <section class="red-flag-box" style="margin-bottom: 1.5rem;" aria-label="Critical Alerts">
+      <h3 style="color: #fca5a5; font-size: 1.15rem; margin-bottom: 0.5rem;">
+        🚨 CRITICAL SAFETY RULES FOR THIS PATIENT
+      </h3>
+      <div id="p-critical-rules">
+        <!-- Injected via JavaScript -->
+      </div>
+    </section>
+
+    <!-- Visual Daily Medication Timetable -->
+    <section aria-label="Daily Medication Schedule">
+      <h2 style="font-size: 1.3rem; margin-bottom: 1rem; color: #ffffff;">
+        📅 Your Daily Medication Timetable
+      </h2>
+      <div id="p-schedule-container" class="schedule-grid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </section>
+
+    <!-- Emergency Folding Wallet Card -->
+    <section class="wallet-card-section" aria-label="Emergency Wallet Card">
+      <div class="wallet-card-title">
+        ✂️ Foldable Emergency Medical Card (Cut along dashed line and carry in wallet)
+      </div>
+      <div class="wallet-card-preview">
+        <div class="wallet-card-header">
+          <strong style="color: #ffffff;">EMERGENCY MEDICAL PASSPORT</strong>
+          <span style="color: #ff2b47; font-weight: 800; font-size: 0.8rem;">ATTENTION EMS</span>
+        </div>
+        <p style="font-size: 0.9rem; margin-bottom: 0.4rem; color: #ffffff;">
+          <strong>Patient:</strong> <span id="w-name">Robert Miller</span> | <strong>Age:</strong> <span id="w-age">68</span>
+        </p>
+        <p style="font-size: 0.85rem; color: #f87171; font-weight: 700; margin-bottom: 0.5rem;" id="w-blood-thinners">
+          ⚠️ ON ANTICOAGULATION: High risk of serious bleeding.
+        </p>
+        <div style="font-size: 0.8rem; background: rgba(0,0,0,0.5); padding: 0.6rem; border-radius: 6px; margin-bottom: 0.6rem; border: 1px solid rgba(255,255,255,0.1); color: #cbd5e1;">
+          <strong style="color: #ffffff;">Active Medications:</strong>
+          <span id="w-med-list">Aspirin, Clopidogrel, Warfarin, Atorvastatin, Lisinopril</span>
+        </div>
+        <div style="font-size: 0.75rem; color: #94a3b8; display: flex; justify-content: space-between;">
+          <span>In Emergency: Call 911</span>
+          <span>Verified by CareGuardian AI</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const stored = localStorage.getItem('careguardian_passport_data');
+      if (!stored) return;
+
+      try {
+        const data = JSON.parse(stored);
+        const p = data.patient;
+        const s = data.safety;
+        const sch = data.schedule;
+
+        document.getElementById('p-name').textContent = p.name || 'Patient';
+        document.getElementById('p-age').textContent = p.age || '65';
+        document.getElementById('p-allergies').textContent = (p.allergies && p.allergies.length) ? p.allergies.join(', ') : 'None documented';
+        document.getElementById('p-conditions').textContent = (p.conditions && p.conditions.length) ? p.conditions.join(', ') : 'None';
+
+        document.getElementById('w-name').textContent = p.name || 'Patient';
+        document.getElementById('w-age').textContent = p.age || '65';
+
+        // Critical rules
+        const rulesContainer = document.getElementById('p-critical-rules');
+        const criticalAlerts = s.alerts.filter(a => a.severity === 'CRITICAL');
+        if (criticalAlerts.length) {
+          rulesContainer.innerHTML = criticalAlerts.map(a => `
+            <p style="margin-bottom: 0.5rem; font-size: 0.95rem; color: #fecaca;">
+              <strong style="color: #ffffff;">⛔ ${a.drugA} + ${a.drugB}:</strong> ${a.plain_language}
+            </p>
+          `).join('');
+        } else {
+          rulesContainer.innerHTML = `<p style="color: #34d399; font-weight: 600;">✅ No critical contraindications detected. Follow standard dosing.</p>`;
+        }
+
+        // Wallet Med list
+        const medNames = data.extraction.medications.map(m => m.name);
+        document.getElementById('w-med-list').textContent = medNames.join(', ');
+
+        // Schedule
+        const schContainer = document.getElementById('p-schedule-container');
+        const slots = [
+          { label: '🌅 Morning', items: sch.morning },
+          { label: '☀️ Lunch / Midday', items: sch.afternoon },
+          { label: '🌆 Dinner / Evening', items: sch.evening },
+          { label: '🌙 Bedtime', items: sch.bedtime },
+          { label: '⚠️ As Needed', items: sch.as_needed }
+        ];
+
+        schContainer.innerHTML = slots.filter(s => s.items && s.items.length).map(s => `
+          <div class="time-slot-card">
+            <div class="time-slot-header"><strong>${s.label}</strong></div>
+            <div class="slot-items-list">
+              ${s.items.map(m => `
+                <div class="med-card-row">
+                  <div>
+                    <strong style="color: #ffffff;">💊 ${m.name}</strong> (${m.dosage}) - <em style="color: #94a3b8;">${m.drug_class}</em>
+                  </div>
+                  <div class="med-food-note">${m.food_guidance}</div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `).join('');
+
+      } catch (e) {
+        console.error("Error populating passport:", e);
+      }
+    });
+  </script>
+</body>
+</html>

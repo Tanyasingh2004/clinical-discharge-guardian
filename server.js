@@ -25,27 +25,39 @@ let clinicalSamples = { samples: [] };
 let rxNormCache = { drugs: {} };
 
 try {
-  const ddiRaw = fs.readFileSync(path.join(DATA_DIR, 'ddi_knowledge_base.json'), 'utf8');
-  ddiDatabase = JSON.parse(ddiRaw);
+  ddiDatabase = require('./data/ddi_knowledge_base.json');
   console.log(`[Clinical Engine] Loaded ${ddiDatabase.interactions.length} clinical interaction rules.`);
 } catch (e) {
-  console.error('[Clinical Engine] Error loading DDI Knowledge Base:', e.message);
+  try {
+    const ddiRaw = fs.readFileSync(path.join(DATA_DIR, 'ddi_knowledge_base.json'), 'utf8');
+    ddiDatabase = JSON.parse(ddiRaw);
+  } catch (err) {
+    console.error('[Clinical Engine] Error loading DDI Knowledge Base:', err.message);
+  }
 }
 
 try {
-  const samplesRaw = fs.readFileSync(path.join(DATA_DIR, 'clinical_samples.json'), 'utf8');
-  clinicalSamples = JSON.parse(samplesRaw);
+  clinicalSamples = require('./data/clinical_samples.json');
   console.log(`[Clinical Engine] Loaded ${clinicalSamples.samples.length} real-world clinical discharge case studies.`);
 } catch (e) {
-  console.error('[Clinical Engine] Error loading Clinical Samples:', e.message);
+  try {
+    const samplesRaw = fs.readFileSync(path.join(DATA_DIR, 'clinical_samples.json'), 'utf8');
+    clinicalSamples = JSON.parse(samplesRaw);
+  } catch (err) {
+    console.error('[Clinical Engine] Error loading Clinical Samples:', err.message);
+  }
 }
 
 try {
-  const rxRaw = fs.readFileSync(path.join(DATA_DIR, 'rxnorm_cache.json'), 'utf8');
-  rxNormCache = JSON.parse(rxRaw);
+  rxNormCache = require('./data/rxnorm_cache.json');
   console.log(`[Clinical Engine] Loaded ${Object.keys(rxNormCache.drugs).length} RxNorm drug mappings.`);
 } catch (e) {
-  console.error('[Clinical Engine] Error loading RxNorm cache:', e.message);
+  try {
+    const rxRaw = fs.readFileSync(path.join(DATA_DIR, 'rxnorm_cache.json'), 'utf8');
+    rxNormCache = JSON.parse(rxRaw);
+  } catch (err) {
+    console.error('[Clinical Engine] Error loading RxNorm cache:', err.message);
+  }
 }
 
 // Medical Jargon Translation Map (Medical to 5th-Grade Plain Language)

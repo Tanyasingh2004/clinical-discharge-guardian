@@ -5,6 +5,7 @@
   "main": "server.js",
   "type": "commonjs",
   "scripts": {
+    "build": "node scripts/test_clinical_cases.js",
     "start": "node server.js",
     "test": "node scripts/test_clinical_cases.js",
     "download-models": "python scripts/download_open_models.py",
