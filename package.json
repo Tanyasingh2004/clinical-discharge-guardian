@@ -4,6 +4,9 @@
   "description": "Multimodal Clinical Discharge & Drug Interaction Guardian for Healthcare & Accessibility, powered by open biomedical models (Hugging Face, NIH RxNav).",
   "main": "server.js",
   "type": "commonjs",
+  "engines": {
+    "node": ">=18.x"
+  },
   "scripts": {
     "build": "node scripts/test_clinical_cases.js",
     "start": "node server.js",

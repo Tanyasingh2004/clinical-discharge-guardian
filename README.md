@@ -62,7 +62,7 @@ CareGuardian is engineered from the ground up for patients with sensory, cogniti
 ### Prerequisites
 - **Node.js:** v18+ (tested on Node v24)
 - **Browser:** Chrome, Edge, Safari, or Firefox (with Web Speech API support)
-- *(Optional for Python Hugging Face CLI):* Python 3.9+ with `pip install -r requirements.txt`
+- *(Optional for Python Hugging Face CLI):* Python 3.9+ with `pip install -r scripts/requirements.txt`
 
 ### 1. Launch the Application
 
@@ -84,7 +84,7 @@ npm test
 To test the open-source Hugging Face model locally with Python:
 
 ```bash
-pip install -r requirements.txt
+pip install -r scripts/requirements.txt
 python scripts/huggingface_clinical_ner.py --text "Discharge on Aspirin 81mg QD, Clopidogrel 75mg QD, and Warfarin 5mg."
 ```
 
@@ -96,13 +96,16 @@ python scripts/huggingface_clinical_ner.py --text "Discharge on Aspirin 81mg QD,
 clinical-discharge-guardian/
 ├── README.md                      # Comprehensive documentation & open repo guide
 ├── package.json                   # Scripts, metadata, test runner
-├── requirements.txt               # Python Hugging Face dependencies
+├── vercel.json                    # Vercel deployment configuration
 ├── server.js                      # Native Node.js HTTP server & Clinical API
+├── api/                           # Vercel serverless API handlers (analyze, chat, health, samples)
+├── lib/                           # Core clinical decision support engine
 ├── data/
 │   ├── ddi_knowledge_base.json     # 45+ Curated High-Risk Clinical DDI & Food rules
 │   ├── clinical_samples.json       # Realistic cardiology, geriatric & pulmonary cases
 │   └── rxnorm_cache.json           # RxCUI drug nomenclature & dietary mappings
 ├── scripts/
+│   ├── requirements.txt            # Python Hugging Face dependencies
 │   ├── huggingface_clinical_ner.py  # Python Hugging Face pipeline (d4data/biomedical-ner-all)
 │   ├── download_open_models.py      # Automated weights downloader for offline deployment
 │   └── test_clinical_cases.js       # Verification test suite (100% pass rate)
