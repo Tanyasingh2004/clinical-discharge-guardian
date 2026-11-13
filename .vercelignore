@@ -1,0 +1,3 @@
+# Ignore Python model downloading and auxiliary scripts in Vercel build
+scripts/*.py
+scripts/requirements.txt
